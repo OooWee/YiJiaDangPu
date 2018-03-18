@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优质二手</title>
+    <link rel="stylesheet" href="../css/page_style.css">
+    <link rel="stylesheet" href="../css/default_index.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui/amazeui.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <ul class="header-top-service clearfloat font-color">
+            <li class="site-map">
+                <a target="_blank" href="/sitemap.html">网站导航</a>
+                <span></span>
+                <div class="site-map-wrap clearfix">
+                    <div class="site-links">
+                        <h2>网站导航</h2>
+                        <a href="/sitemap.html" target="_blank">用户导航</a> <br>
+                        <a href="/sitemap_index.html" target="_blank">网站地图</a> <br>
+                        <a href="/news/8600.html" target="_blank">常见问题</a> <br>
+                    </div>
+                </div>
+            </li>
+            <li class="contact">
+                <a target="_blank" rel="external nofollow" href="#">联系我们</a>
+                <span></span>
+            </li>
+            <li class="about">
+                <a target="_blank" rel="external nofollow" href="#">关于我们</a>
+                <span></span>
+            </li>
+            <li class="server">
+                <a target="_blank" rel="external nofollow" href="#">帮助中心</a>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="navbar">
+            <div class="navbar-left-container">
+                <a href="/"><img src="../images/logo1.png" class="navbar-brand-logo"></a>
+            </div>
+            <div class="navbar-right-container" style="display: flex;">
+                <div class="navbar-menu-container"><!---->
+                    <a href="Login.html" class="navbar-link">登录</a>
+                    <div class="navbar-cart-container"><!---->
+                        <a href="Cart.html" class="navbar-link navbar-cart-link">
+                            <img class="shopcart" src="../images/shopcart.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="top-title">
+        <div class="container">
+            <div class="title clearfloat">
+                <div class="first  default-action">
+                    <a href="../index.html"><h2 class="head-tag">首页</h2></a>
+                </div>
+                <div class="first">
+                    <a href="GoodsList.html"><h2 class="head-tag">优质二手</h2></a>
+                </div>
+                <div class="first">
+                    <a href="#"><h2 class="head-tag">个人主页</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="order-create">
+    <div class="order-create-pic">
+        <img src="../images/ok-2.png" alt="">
+    </div>
+    <div class="order-create-main">
+        <h3>祝贺你! <br> 您的订单正在处理中！</h3>
+        <p>
+            <span>订单 ID：123456789</span>
+            <span>订单 总额：￥9010</span>
+        </p>
+        <div class="order-create-btn-wrap">
+            <div class="btn-l-wrap">
+                <a href="../index.html" class="btn btn--m">回到主页</a>
+            </div>
+            <div class="btn-r-wrap">
+                <a class="btn btn--m" to="#">查看订单</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".site-map").mouseover(function(){
+            $(".site-map-wrap").css("visibility","visible");
+        });
+        $(".site-map").mouseout(function(){
+            $(".site-map-wrap").css("visibility","hidden");
+        });
+        $(".first").mouseover(function(){
+            $(this).addClass("is-selected");
+            $(this).siblings().removeClass('is-selected');
+        });
+        $(".first").mouseout(function(){
+            $(this).removeClass('is-selected');
+            $(".now").addClass('is-selected');
+        })
+    });
+</script>

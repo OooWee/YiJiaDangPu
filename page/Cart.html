@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优质二手</title>
+    <link rel="stylesheet" href="../css/page_style.css">
+    <link rel="stylesheet" href="../css/default_index.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui/amazeui.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <ul class="header-top-service clearfloat font-color">
+            <li class="site-map">
+                <a target="_blank" href="/sitemap.html">网站导航</a>
+                <span></span>
+                <div class="site-map-wrap clearfix">
+                    <div class="site-links">
+                        <h2>网站导航</h2>
+                        <a href="/sitemap.html" target="_blank">用户导航</a> <br>
+                        <a href="/sitemap_index.html" target="_blank">网站地图</a> <br>
+                        <a href="/news/8600.html" target="_blank">常见问题</a> <br>
+                    </div>
+                </div>
+            </li>
+            <li class="contact">
+                <a target="_blank" rel="external nofollow" href="#">联系我们</a>
+                <span></span>
+            </li>
+            <li class="about">
+                <a target="_blank" rel="external nofollow" href="#">关于我们</a>
+                <span></span>
+            </li>
+            <li class="server">
+                <a target="_blank" rel="external nofollow" href="#">帮助中心</a>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="navbar">
+            <div class="navbar-left-container">
+                <a href="/"><img src="../images/logo1.png" class="navbar-brand-logo"></a>
+            </div>
+            <div class="navbar-right-container" style="display: flex;">
+                <div class="navbar-menu-container"><!---->
+                    <a href="Login.html" class="navbar-link">登录</a>
+                    <div class="navbar-cart-container"><!---->
+                        <a href="#" class="navbar-link navbar-cart-link">
+                            <img class="shopcart" src="../images/shopcart.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-title">
+        <div class="container">
+            <div class="title clearfloat">
+                <div class="first  default-action">
+                    <a href="../index.html"><h2 class="head-tag">首页</h2></a>
+                </div>
+                <div class="first">
+                    <a href="GoodsList.html"><h2 class="head-tag">优质二手</h2></a>
+                </div>
+                <div class="first">
+                    <a href="#"><h2 class="head-tag">个人主页</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-sub">
+        <div class="nav-sub-bg"></div>
+        <div class="nav-sub-wrapper">
+            <div class="w">
+                <ul class="nav-list">
+                    <li>
+                        <a href="javascript:;" class="">购物车</a>
+                    </li>
+                </ul>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cart">
+            <div class="page-title-normal">
+                <h2 class="page-title-h2"><span>我的购物车</span></h2>
+            </div>
+            <div class="item-list-wrap">
+                <div class="cart-item">
+                    <div class="cart-item-head">
+                        <ul>
+                            <li>商 品</li>
+                            <li>价 钱</li>
+                            <li>数 量</li>
+                            <li>小 计</li>
+                            <li>删 除</li>
+                        </ul>
+                    </div>
+                    <ul class="cart-item-list">
+                        <li v-for="item in cartList">
+                            <div class="cart-tab-1">
+                                <div class="cart-item-check">
+                                    <a href="javascipt:;" class="checkbox-btn item-check-btn">
+                                        <img src="../images/checked.png">
+                                    </a>
+                                </div>
+                                <div class="cart-item-pic">
+                                    <img src="../images/phone/iphone8.png">
+                                </div>
+                                <div class="cart-item-title">
+                                    <div class="item-name">Iphone8</div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-2">
+                                <div class="item-price">￥3000</div>
+                            </div>
+                            <div class="cart-tab-3">
+                                <div class="item-quantity">
+                                    <div class="select-self select-self-open">
+                                        <div class="select-self-area">
+                                            <a class="input-sub" @click="editCart('minus',item)">-</a>
+                                            <span class="select-ipt">1</span>
+                                            <a class="input-add" @click="editCart('add',item)">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-4">
+                                <div class="item-price-total">3000</div>
+                            </div>
+                            <div class="cart-tab-5">
+                                <div class="cart-item-opration">
+                                    <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
+                                        <img src="../images/lajitong2.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li v-for="item in cartList">
+                            <div class="cart-tab-1">
+                                <div class="cart-item-check">
+                                    <a href="javascipt:;" class="checkbox-btn item-check-btn">
+                                        <img src="../images/checked.png">
+                                    </a>
+                                </div>
+                                <div class="cart-item-pic">
+                                    <img src="../images/phone/iphone8.png">
+                                </div>
+                                <div class="cart-item-title">
+                                    <div class="item-name">Iphone8</div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-2">
+                                <div class="item-price">￥3000</div>
+                            </div>
+                            <div class="cart-tab-3">
+                                <div class="item-quantity">
+                                    <div class="select-self select-self-open">
+                                        <div class="select-self-area">
+                                            <a class="input-sub" @click="editCart('minus',item)">-</a>
+                                            <span class="select-ipt">1</span>
+                                            <a class="input-add" @click="editCart('add',item)">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-4">
+                                <div class="item-price-total">3000</div>
+                            </div>
+                            <div class="cart-tab-5">
+                                <div class="cart-item-opration">
+                                    <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
+                                        <img src="../images/lajitong2.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li v-for="item in cartList">
+                            <div class="cart-tab-1">
+                                <div class="cart-item-check">
+                                    <a href="javascipt:;" class="checkbox-btn item-check-btn">
+                                        <img src="../images/checked.png">
+                                    </a>
+                                </div>
+                                <div class="cart-item-pic">
+                                    <img src="../images/phone/iphone8.png">
+                                </div>
+                                <div class="cart-item-title">
+                                    <div class="item-name">Iphone8</div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-2">
+                                <div class="item-price">￥3000</div>
+                            </div>
+                            <div class="cart-tab-3">
+                                <div class="item-quantity">
+                                    <div class="select-self select-self-open">
+                                        <div class="select-self-area">
+                                            <a class="input-sub" @click="editCart('minus',item)">-</a>
+                                            <span class="select-ipt">1</span>
+                                            <a class="input-add" @click="editCart('add',item)">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-tab-4">
+                                <div class="item-price-total">3000</div>
+                            </div>
+                            <div class="cart-tab-5">
+                                <div class="cart-item-opration">
+                                    <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
+                                        <img src="../images/lajitong2.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cart-foot-wrap">
+                <div class="cart-foot-inner">
+                    <div class="cart-foot-l">
+                        <div class="item-all-check">
+                            <a href="javascipt:;" @click="toggleCheckAll()">
+                  <span class="checkbox-btn item-check-btn" v-bind:class="{'check':checkAllFlag}">
+                    <img class="checkbox-btn-ok" src="../images/checked.png">
+                  </span>
+                                <span class="select-all">选择全部</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart-foot-r">
+                        <div class="item-total">
+                            合 计 : <span class="total-price">￥3000</span>
+                        </div>
+                        <div class="btn-wrap">
+                            <a class="btn btn--red" href="Address.html">确认购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="foot-3">
+    <span>Copyright © 2018 , Design By Demon ljt</span>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".site-map").mouseover(function(){
+            $(".site-map-wrap").css("visibility","visible");
+        });
+        $(".site-map").mouseout(function(){
+            $(".site-map-wrap").css("visibility","hidden");
+        });
+        $(".first").mouseover(function(){
+            $(this).addClass("is-selected");
+            $(this).siblings().removeClass('is-selected');
+        });
+        $(".first").mouseout(function(){
+            $(this).removeClass('is-selected');
+            $(".now").addClass('is-selected');
+        })
+    });
+</script>

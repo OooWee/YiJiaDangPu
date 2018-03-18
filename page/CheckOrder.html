@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优质二手</title>
+    <link rel="stylesheet" href="../css/page_style.css">
+    <link rel="stylesheet" href="../css/default_index.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui/amazeui.min.js"></script>
+    <style>
+        .container {
+            padding: 0 10px;
+            background-color: rgba(255, 255, 255, 0);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .checkout-order{
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .check-step {
+            padding: 30px 0 20px;
+        }
+        .check-step ul {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+        }
+        .check-step li.cur {
+            border-color: #d1434a;
+            color: #d1434a;
+        }
+        .check-step li {
+            position: relative;
+            float: left;
+            -ms-flex: 1;
+            -webkit-box-flex: 1;
+            flex: 1;
+            width: 25%;
+            line-height: 1.25em;
+            padding: 0 1em 1.25em;
+            border-bottom: 2px solid #ccc;
+            color: #999;
+            text-align: center;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+        .check-step li.cur:after {
+            background: #d1434a;
+        }
+        .check-step li:after {
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            margin-left: -7px;
+            content: "";
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+        .checkout-title h2 {
+            padding: 20px 0;
+            font-size: 16px;
+            color: #605f5f;
+        }
+        .page-title-normal h2 {
+            padding: 40px 0 20px;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: .25em;
+            font-weight: 700;
+        }
+        .cart-item {
+            display: table;
+            width: 100%;
+        }
+        .cart-item-head {
+            display: table-header-group;
+            width: 100%;
+        }
+        .cart-item-head ul {
+            display: table-row;
+            width: 100%;
+        }
+        .cart-item-head li {
+            display: table-cell;
+            height: 40px;
+            line-height: 40px;
+            background: #d1434a;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "moderat", sans-serif;
+            letter-spacing: .25em;
+        }
+        .cart-item-list {
+            display: table-row-group;
+        }
+        .cart-item-list .cart-tab-1 {
+            min-height: 72px;
+            padding: 32px 0 32px 0;
+            text-align: left;
+            border-left: 1px solid #e9e9e9;
+        }
+        .cart-item-list .cart-item-check {
+            float: left;
+            padding: 30px 0 0 20px;
+        }
+        .cart-item-list > li {
+            position: relative;
+            display: table-row;
+            padding: 32px 0;
+            background: #fff;
+        }
+        .cart-item-list > li > div {
+            position: relative;
+            display: table-cell;
+            text-align: center;
+            vertical-align: top;
+            border-bottom: 1px solid #e9e9e9;
+            height: 100%;
+        }
+        .checkbox-btn {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border: 1px solid #999;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .checkbox-btn-ok{
+            padding-bottom: 50px;
+        }
+        .cart-item-list .cart-item-pic {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-left: 30px;
+            overflow: hidden;
+        }
+        .cart-item-list .cart-item-pic img {
+            width: 80%;
+        }
+        .cart-item-list .cart-item-title {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            min-height: 76px;
+            padding: 0 20px 0 20px;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .cart-item-list .cart-item-title .item-name {
+            width: 100%;
+            line-height: 76px;
+            color: #000;
+            font-family: "moderat", sans-serif;
+            font-weight: bold;
+        }
+        .cart-item-list .cart-tab-2 {
+            padding-top: 64px;
+        }
+        .cart-item-list .item-price {
+            font-size: 16px;
+            color: #333;
+        }
+        .cart-item-list .cart-tab-3 {
+            padding-top: 60px;
+        }
+        .select-self-open {
+            border-radius: 3px 3px 0 0;
+        }
+        .select-self {
+            position: relative;
+            display: inline-block;
+        }
+        .item-quantity .select-self-area {
+            background: none;
+            border: 1px solid #f0f0f0;
+        }
+        .select-self-area {
+            width: auto;
+            background: #f0f0f0;
+            border-radius: 3px;
+            min-width: 50px;
+            max-width: 240px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .input-sub, .input-add {
+            min-width: 40px;
+            height: 100%;
+            border: 0;
+            color: #605F5F;
+            text-align: center;
+            font-size: 16px;
+            overflow: hidden;
+            display: inline-block;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        .item-quantity .select-self-area .select-ipt {
+            display: inline-block;
+            padding: 0 3px;
+            width: 30px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .select-self-area .select-ipt {
+            display: block;
+            min-width: 56px;
+            height: 100%;
+            padding: 0 25px 0 10px;
+            border: 0;
+            color: #605F5F;
+            text-align: left;
+            font-size: 16px;
+            overflow: hidden;
+        }
+        .cart-item-list .cart-tab-4 {
+            padding-top: 64px;
+        }
+        .cart-item-list .item-price-total {
+            color: #d1434a;
+            font-size: 16px;
+        }
+        .cart-item-list .cart-tab-5 {
+            padding-top: 62px;
+            border-right: 1px solid #e9e9e9;
+        }
+        .cart-item-list .item-edit-btn {
+            position: relative;
+            z-index: 6;
+        }
+        .item-edit-btn {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+        .item-edit-btn .icon-del {
+            width: 100%;
+            height: 100%;
+            fill: #999;
+        }
+        .cart-foot-wrap {
+            margin-top: 20px;
+            background: #fff;
+            border: 1px solid #e9e9e9;
+            font-size: 16px;
+        }
+        .cart-foot-wrap .cart-foot-l {
+            float: left;
+            padding: 0 22px;
+            line-height: 54px;
+        }
+        .cart-foot-wrap .item-all-check {
+            float: left;
+        }
+        .cart-foot-wrap .item-all-check .item-check-btn {
+            margin-right: 18px;
+        }
+        .cart-foot-wrap .item-all-check span {
+            vertical-align: middle;
+        }
+        .select-all{
+            color: #303135;
+        }
+        .cart-foot-wrap .item-all-check span {
+            vertical-align: middle;
+        }
+        .cart-foot-wrap .cart-foot-inner:after {
+            visibility: hidden;
+            display: block;
+            content: " ";
+            clear: both;
+        }
+        .cart-foot-wrap .cart-foot-r {
+            float: right;
+        }
+        .cart-foot-wrap .item-total {
+            float: left;
+            margin: 0px 30px 0 0;
+            color: #999;
+            font-size: 16px;
+            text-align: right;
+            line-height: 54px;
+        }
+        .cart-foot-wrap .item-total .total-price {
+            margin-left: 6px;
+            color: #d1434a;
+            font-size: 1.125em;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .cart-foot-wrap .btn-wrap, .cart-foot-wrap .next-btn-wrap {
+            float: right;
+        }
+        .checkout-page .btn, .checkout .btn {
+            min-width: 200px;
+        }
+
+        .checkout .btn {
+            min-width: 200px;
+        }
+        .btn--red, .btn--red{
+            background-color: #d1434a;
+            border-color: #d1434a;
+            color: #fff;
+        }
+        .btn--dis{
+            background-color:#8d8d8d;
+            border-color: #8d8d8d;
+        }
+        .btn, .btn {
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            font-family: "moderat", sans-serif;
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            text-transform: uppercase;
+            letter-spacing: .25em;
+            white-space: nowrap;
+            margin-top: 0!important;
+        }
+        .btn {
+            height: 55px;
+            line-height: 54px;
+            padding: 0 50px;
+        }
+        .item-edit-btn img{
+            width: 25px;
+            height: 25px;
+        }
+        .check{
+            background-color: #ee7a23;
+            border-color: #ee7a23;
+        }
+        .price-count-wrap {
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+        .price-count ul {
+            display: table;
+            width: 100%;
+        }
+        .price-count li {
+            display: table-row;
+            font-size: 18px;
+        }
+        .price-count li span:first-child {
+            color: #999;
+        }
+        .price-count li span {
+            display: table-cell;
+            height: 36px;
+            padding-right: 10px;
+            vertical-align: top;
+            text-align: right;
+        }
+        .price-count li span:last-child {
+            width: 20px;
+            padding-left: 10px;
+            white-space: nowrap;
+        }
+        .price-count li span {
+            display: table-cell;
+            height: 36px;
+            padding-right: 10px;
+            vertical-align: top;
+            text-align: right;
+        }
+        .price-count .order-total-price span:last-child {
+            color: #d1434a;
+            font-size: 1.125em;
+            font-weight: 700;
+        }
+        .order-foot-wrap{
+            height: 100px;
+        }
+        .order-foot-wrap .prev-btn-wrap {
+            float: left;
+        }
+        .order-foot-wrap .next-btn-wrap {
+            float: right;
+        }
+        .btn--red, .btn--red {
+            border-color: #d1434a;
+            background-color: #d1434a;
+            color: #fff;
+        }
+        .btn, .btn{
+            display: inline-block;
+            text-align: center;
+            font-size: 14px;
+            font-family: moderat,sans-serif;
+            font-weight: 700;
+            border: 1px solid #d1434a;
+            text-transform: uppercase;
+            letter-spacing: .25em;
+            white-space: nowrap;
+            padding: 0 50px;
+        }
+        .btn:hover{
+            transition: all .3s ease-out;
+            background-color: rgba(209, 67, 74, 0.74);
+            color: #fff;
+            border-color: rgba(209, 67, 74, 0.74);
+        }
+        .btn--m {
+            height: 40px;
+            line-height: 40px;
+            color: #cd4f45;
+        }
+        .sortImg2{
+            position: absolute;
+            padding: 3px 6px;
+            transition: all .3s ease-out;
+        }
+        .sort-down{
+            transform: rotate(180deg);
+            transition: all .3s ease-out;
+        }
+        .set-default{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <ul class="header-top-service clearfloat font-color">
+            <li class="site-map">
+                <a target="_blank" href="/sitemap.html">网站导航</a>
+                <span></span>
+                <div class="site-map-wrap clearfix">
+                    <div class="site-links">
+                        <h2>网站导航</h2>
+                        <a href="/sitemap.html" target="_blank">用户导航</a> <br>
+                        <a href="/sitemap_index.html" target="_blank">网站地图</a> <br>
+                        <a href="/news/8600.html" target="_blank">常见问题</a> <br>
+                    </div>
+                </div>
+            </li>
+            <li class="contact">
+                <a target="_blank" rel="external nofollow" href="#">联系我们</a>
+                <span></span>
+            </li>
+            <li class="about">
+                <a target="_blank" rel="external nofollow" href="#">关于我们</a>
+                <span></span>
+            </li>
+            <li class="server">
+                <a target="_blank" rel="external nofollow" href="#">帮助中心</a>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="navbar">
+            <div class="navbar-left-container">
+                <a href="/"><img src="../images/logo1.png" class="navbar-brand-logo"></a>
+            </div>
+            <div class="navbar-right-container" style="display: flex;">
+                <div class="navbar-menu-container"><!---->
+                    <a href="Login.html" class="navbar-link">登录</a>
+                    <div class="navbar-cart-container"><!---->
+                        <a href="Cart.html" class="navbar-link navbar-cart-link">
+                            <img class="shopcart" src="../images/shopcart.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="top-title">
+        <div class="container">
+            <div class="title clearfloat">
+                <div class="first  default-action">
+                    <a href="../index.html"><h2 class="head-tag">首页</h2></a>
+                </div>
+                <div class="first">
+                    <a href="GoodsList.html"><h2 class="head-tag">优质二手</h2></a>
+                </div>
+                <div class="first">
+                    <a href="#"><h2 class="head-tag">个人主页</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-sub">
+        <div class="nav-sub-bg"></div>
+        <div class="nav-sub-wrapper">
+            <div class="w">
+                <ul class="nav-list">
+                    <li>
+                        <a href="javascript:;" class="">确认订单</a>
+                    </li>
+                </ul>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="checkout-order">
+        <div class="check-step">
+            <ul>
+                <li class="cur"><span>确认</span>地址</li>
+                <li class="cur"><span>确认</span>订单</li>
+                <li><span>确认</span>付款</li>
+                <li><span>订单</span>完成</li>
+            </ul>
+        </div>
+        <div class="page-title-normal checkout-title">
+            <h2><span>我的订单</span></h2>
+        </div>
+        <div class="item-list-wrap">
+            <div class="cart-item">
+                <div class="cart-item-head">
+                    <ul>
+                        <li>商 品</li>
+                        <li>价 钱</li>
+                        <li>数 量</li>
+                        <li>小 计</li>
+                    </ul>
+                </div>
+                <ul class="cart-item-list">
+                    <li v-for="item in cartList" v-if="item.checked=='1'">
+                        <div class="cart-tab-1">
+                            <div class="cart-item-pic">
+                                <img src="../images/phone/iphone8.png">
+                            </div>
+                            <div class="cart-item-title">
+                                <div class="item-name">iphone6</div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-2">
+                            <div class="item-price">￥3000</div>
+                        </div>
+                        <div class="cart-tab-3">
+                            <div class="item-quantity">
+                                <div class="select-self select-self-open">
+                                    <div class="select-self-area">
+                                        <span class="select-ipt">x1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-4">
+                            <div class="item-price-total">￥3000</div>
+                        </div>
+                    </li>
+                    <li v-for="item in cartList" v-if="item.checked=='1'">
+                        <div class="cart-tab-1">
+                            <div class="cart-item-pic">
+                                <img src="../images/phone/iphone8.png">
+                            </div>
+                            <div class="cart-item-title">
+                                <div class="item-name">iphone6</div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-2">
+                            <div class="item-price">￥3000</div>
+                        </div>
+                        <div class="cart-tab-3">
+                            <div class="item-quantity">
+                                <div class="select-self select-self-open">
+                                    <div class="select-self-area">
+                                        <span class="select-ipt">x1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-4">
+                            <div class="item-price-total">￥3000</div>
+                        </div>
+                    </li>
+                    <li v-for="item in cartList" v-if="item.checked=='1'">
+                        <div class="cart-tab-1">
+                            <div class="cart-item-pic">
+                                <img src="../images/phone/iphone8.png">
+                            </div>
+                            <div class="cart-item-title">
+                                <div class="item-name">iphone6</div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-2">
+                            <div class="item-price">￥3000</div>
+                        </div>
+                        <div class="cart-tab-3">
+                            <div class="item-quantity">
+                                <div class="select-self select-self-open">
+                                    <div class="select-self-area">
+                                        <span class="select-ipt">x1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-tab-4">
+                            <div class="item-price-total">￥3000</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="price-count-wrap">
+            <div class="price-count">
+                <ul>
+                    <li>
+                        <span>商品总计:</span>
+                        <span>￥9000</span>
+                    </li>
+                    <li>
+                        <span>运费:</span>
+                        <span>￥10</span>
+                    </li>
+                    <li>
+                        <span>折扣:</span>
+                        <span>-￥0</span>
+                    </li>
+                    <li class="order-total-price">
+                        <span>总计:</span>
+                        <span>9010</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="order-foot-wrap">
+            <div class="prev-btn-wrap">
+                <a href="#/cart" class="btn btn--m">回到购物车
+                </a>
+            </div>
+            <div class="next-btn-wrap">
+                <a class="btn btn--red" href="Success.html">确认支付</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".site-map").mouseover(function(){
+            $(".site-map-wrap").css("visibility","visible");
+        });
+        $(".site-map").mouseout(function(){
+            $(".site-map-wrap").css("visibility","hidden");
+        });
+        $(".first").mouseover(function(){
+            $(this).addClass("is-selected");
+            $(this).siblings().removeClass('is-selected');
+        });
+        $(".first").mouseout(function(){
+            $(this).removeClass('is-selected');
+            $(".now").addClass('is-selected');
+        })
+    });
+</script>

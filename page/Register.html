@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录/注册 一家当铺</title>
+    <link rel="stylesheet" href="../css/page_style.css">
+</head>
+<body>
+<div class="login">
+    <div class="container">
+        <div class="index-main">
+        <div class="login-box">
+            <div class="index-header">
+                <h1 class="logo"></h1>
+                <h2 class="subtitle">与全世界分享你的物品</h2>
+            </div>
+            <div class="cont-main clearfix">
+                <div class="index-tab">
+                    <div class="index-slide-nav">
+                        <a href="Login.html" >登录</a>
+                        <a href="Register.html" class="active">注册</a>
+                        <div class="slide-bar  slide-bar1"></div>
+                    </div>
+                </div>
+                <div class="login form">
+                    <div class="group">
+                        <div class="group-ipt email">
+                            <input type="text" name="email" id="email" class="ipt" placeholder="手机号码或邮箱" required>
+                        </div>
+                        <div class="group-ipt password">
+                            <input type="password" name="password" id="password" class="ipt" placeholder="输入您的登录密码" required>
+                        </div>
+                        <div class="group-ipt password">
+                            <input type="password" name="password" id="password" class="ipt" placeholder="请再次输入你的密码" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <button type="submit" class="login-btn register-btn" id="button" onclick="javascript:top.location='../index.html'">进入当铺测试</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="footer">
+            <p>关于我们 | 安全协议 | 帮助中心</p>
+            <p>Designed By LiuJiaTai & 个人GitHub简历:</p>
+        </div>
+     </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $("#remember-me").click(function(){
+        var n = document.getElementById("remember-me").checked;
+        if(n){
+            $(".zt").show();
+        }else{
+            $(".zt").hide();
+        }
+    });
+</script>
+</html>

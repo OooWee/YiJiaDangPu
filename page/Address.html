@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优质二手</title>
+    <link rel="stylesheet" href="../css/page_style.css">
+    <link rel="stylesheet" href="../css/default_index.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <script type="text/javascript" src="../js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/amazeui/amazeui.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="top-header">
+        <ul class="header-top-service clearfloat font-color">
+            <li class="site-map">
+                <a target="_blank" href="/sitemap.html">网站导航</a>
+                <span></span>
+                <div class="site-map-wrap clearfix">
+                    <div class="site-links">
+                        <h2>网站导航</h2>
+                        <a href="/sitemap.html" target="_blank">用户导航</a> <br>
+                        <a href="/sitemap_index.html" target="_blank">网站地图</a> <br>
+                        <a href="/news/8600.html" target="_blank">常见问题</a> <br>
+                    </div>
+                </div>
+            </li>
+            <li class="contact">
+                <a target="_blank" rel="external nofollow" href="#">联系我们</a>
+                <span></span>
+            </li>
+            <li class="about">
+                <a target="_blank" rel="external nofollow" href="#">关于我们</a>
+                <span></span>
+            </li>
+            <li class="server">
+                <a target="_blank" rel="external nofollow" href="#">帮助中心</a>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="navbar">
+            <div class="navbar-left-container">
+                <a href="/"><img src="../images/logo1.png" class="navbar-brand-logo"></a>
+            </div>
+            <div class="navbar-right-container" style="display: flex;">
+                <div class="navbar-menu-container"><!---->
+                    <a href="Login.html" class="navbar-link">登录</a>
+                    <div class="navbar-cart-container"><!---->
+                        <a href="Cart.html" class="navbar-link navbar-cart-link">
+                            <img class="shopcart" src="../images/shopcart.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="top-title">
+        <div class="container">
+            <div class="title clearfloat">
+                <div class="first  default-action">
+                    <a href="../index.html"><h2 class="head-tag">首页</h2></a>
+                </div>
+                <div class="first">
+                    <a href="GoodsList.html"><h2 class="head-tag">优质二手</h2></a>
+                </div>
+                <div class="first">
+                    <a href="#"><h2 class="head-tag">个人主页</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-sub">
+        <div class="nav-sub-bg"></div>
+        <div class="nav-sub-wrapper">
+            <div class="w">
+                <ul class="nav-list">
+                    <li>
+                        <a href="javascript:;" class="">购物车</a>
+                    </li>
+                </ul>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="checkout-addr">
+            <div class="check-step">
+                <ul>
+                    <li class="cur"><span>确认</span>地址</li>
+                    <li><span>确认</span>订单</li>
+                    <li><span>确认</span>付款</li>
+                    <li><span>订单</span>完成</li>
+                </ul></div>
+            <div class="page-title-normal checkout-title">
+                <h2><span>我的地址</span></h2>
+            </div>
+            <div class="addr-list-wrap">
+                <div class="addr-list">
+                    <ul>
+                        <li class="addr-user">
+                            <div class="addr-user-name">刘先生</div>
+                            <div class="addr-user-address">广东省广州市广州大道北</div>
+                            <div class="addr-user-num">13168868101</div>
+                            <div class="addr-user-default" v-if="item.isDefault">默认地址</div>
+                            <div class="addr-user-default set-default" v-if="!item.isDefault" @click="setDefault(item.addressId)">设置默认地址</div>
+                            <div class="addr-user-del">
+                            </div>
+                        </li>
+                        <li class="addr-new" @click="showAddressModal">
+                            <div class="add-new-inner">
+                                <i class="icon-add">
+                                    <img src="../images/add.png">
+                                </i>
+                                <p>新增地址</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="shipping-addr-more">
+                    <a href="javascript:;" class="addr-more-btn up-down-btn" @click="moreAddress">
+                        展开所有
+                        <img v-bind:class="{'sort-down':!sortFlag}" class="sortImg2" src="../images/sort2.png">
+                    </a>
+                </div>
+            </div>
+            <div class="page-title-normal checkout-title">
+                <h2><span>运送方式</span></h2>
+            </div>
+            <!--<div class="lemall-msg-info hidden">-->
+            <!--<span>The region you selected is not within our delivery area. Please select another shipping address within our delivery areas.</span>-->
+            <!--</div>-->
+            <div class="shipping-method-wrap">
+                <div class="shipping-method">
+                    <ul>
+                        <li class="check">
+                            <div class="name">普通快递</div>
+                            <div class="price">免费</div>
+                            <div class="shipping-tips">
+                                <p>预计收货时间1-3工作日内</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="next-btn-wrap">
+                <a class="btn btn--m btn--red" href="CheckOrder.html">下一步</a>
+            </div>
+        </div>
+    </div>
+<div class="foot-3">
+    <span>Copyright © 2018 , Design By Demon ljt</span>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".site-map").mouseover(function(){
+            $(".site-map-wrap").css("visibility","visible");
+        });
+        $(".site-map").mouseout(function(){
+            $(".site-map-wrap").css("visibility","hidden");
+        });
+        $(".first").mouseover(function(){
+            $(this).addClass("is-selected");
+            $(this).siblings().removeClass('is-selected');
+        });
+        $(".first").mouseout(function(){
+            $(this).removeClass('is-selected');
+            $(".now").addClass('is-selected');
+        })
+    });
+</script>
