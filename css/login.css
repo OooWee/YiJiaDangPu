@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Microsoft YaHei";
+}
+html,body{
+    height: 100%;
+}
+.login{
+  padding: 50px 40px 80px;
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.15em;
+}
+.index-header .logo{
+    margin: 0 auto;
+    width: 239px;
+    height: 95px;
+    background-image: url("/static/images/logo.png");
+}
+.index-header .subtitle {
+    color: black;
+    margin: 5px 0 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+}
+.index-tab {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.index-tab .index-slide-nav {
+    display: inline-block;
+    position: relative;
+}
+.index-tab .index-slide-nav a.active {
+    opacity: 1;
+    color: #fd0603;
+    text-decoration: none;
+}
+.index-tab .index-slide-nav a {
+    float: left;
+    color: darkgrey;
+    width: 4em;
+    line-height: 35px;
+    text-decoration: none;
+}
+.slide-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 .8em;
+    width: 2.4em;
+    height: 2px;
+    background: #fd0603;
+    transition: all .3s ease-out;
+}
+.slide-bar1 {
+    left: 4em;
+    transition: all .3s ease-out;
+}
+.error{
+  padding-top: 10px;
+  font-size: 14px;
+  color: red;
+}
+.right{
+  padding-top: 10px;
+  font-size: 14px;
+  color: #1fc40f;
+}
+.form {
+    float: none;
+    margin: auto;
+    text-align: left;
+    width: 300px;
+}
+.form .group {
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+}
+.form .group .group-ipt {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+.form .group .group-ipt input {
+    padding: 1.3em .9em;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: rgba(255,255,255,0.5);
+    font-family: 'Microsoft Yahei';
+    color: #666;
+    position: relative;
+}
+#password, #verify, #user, #password1 {
+    border-top: 1px solid #e8e8e8;
+}
+#button:hover {
+    background: #ff5654;
+}
+#button {
+    width: 85%;
+    margin: 20px auto;
+    background: #fd0603;
+    box-shadow: none;
+    border: 0;
+    border-radius: 3px;
+    line-height: 35px;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    cursor: pointer;
+}
+.remember {
+    width: 85%;
+    margin: 10px auto;
+    line-height: 30px;
+}
+.remember-me {
+    color: #555555;
+    font-size: 14px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.icon {
+    width: 11px;
+    height: 11px;
+    display: block;
+    border: 1px solid #ccc;
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+#remember-me {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    opacity: 0;
+    cursor: pointer;
+}
+.zt {
+    width: 9px;
+    height: 9px;
+    background: #fd0603;
+    margin: 1px;
+    display: block;
+}
+.forgot-password {
+    float: right;
+    font-size: 14px;
+}
+.forgot-password a {
+    color: #555;
+}
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
